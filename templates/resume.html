@@ -1,0 +1,907 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>Gopinaath</title>
+</head>
+<style>
+:root {
+    --header-height: 3rem;
+    --nav-width: 324px;
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-bold: 700;
+    --first-color: #0089BA;
+    --first-color-dark: #074057;
+    --first-color-darken: #290F09;
+    --first-color-light: #EAE7E6;
+    --first-color-lighten: #FFFAFA;
+    --text-color: #54423D;
+    --body-font: 'Poppins', sans-serif;
+    --h1: 1.5rem;
+    --h2: 1.25rem;
+    --h3: 1rem;
+    --normal-size: 1.25rem;
+    --small-size: .813rem;
+    --smaller-size: .75rem;
+    --mb-1: 0.5rem;
+    --mb-2: 1rem;
+    --mb-3: 1.5rem;
+    --mb-4: 2rem;
+    --mb-5: 2.5rem;
+    --z-index: 100;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+
+}
+
+body {
+    margin: var(--header-height) 0 0 0;
+    font-family: var(--body-font);
+    font-size: var(--normal-size);
+    font-weight: var(--font-medium);
+    background-color: var(--first-color-lighten);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.bd-grid {
+    max-width: 1024px;
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 2rem;
+    width: calc(100%-2rem);
+    margin-left: var(--mb-2);
+    margin-right: var(--mb-2);
+
+}
+.section{
+    padding: 3rem 0 2rem;
+}
+.l-header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(--z-index);
+    background-color: var(--first-color-lighten);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+}
+
+.nav {
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_title{
+    color: var(--first-color-dark);
+}
+.nav_menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 90%;
+    height: 100vh;
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: var(--first-color);
+    transition: .5s;
+}
+
+.nav-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--first-color-dark);
+    cursor: pointer;
+}
+
+.nav_item {
+    margin-bottom: var(--mb-4);
+
+}
+
+.nav_link {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: var(--first-color-lighten);
+    font-weight: var(--font-bold);
+    transition: .3s;
+
+}
+
+.nav_link:hover {
+    color: var(--first-color-dark);
+}
+
+.nav_toggle {
+    color: var(--first-color-dark);
+    font-size: 1.7rem;
+    cursor: pointer;
+
+}
+
+.show {
+    left: 0;
+}
+
+
+
+.home_container {
+	height: calc(100vh-var(--header-height));
+    align-items: center;
+}
+
+.home_data {
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+.home_img_section {
+	margin: 0.5rem;
+}
+.home_img{
+    padding-top: 1.3rem;
+    width: 160px;
+    height: 160px;
+    margin-bottom: var(--mb-2);
+
+
+}
+.home_title{
+    font-size: var(--h1);
+    color: var(--first-color);
+    font-weight: var(--font-semi-bold);
+
+}
+.section-title{
+    font-size: var(--h1);
+    color: var(--first-color);
+    margin-bottom: var(--mb-2);
+    text-align: center;
+    text-transform: uppercase;
+}
+.home_profession{
+    font-size: var(small-size);
+    color: var(--first-color-dark);
+    margin-bottom: var(--mb-3);
+
+}
+.home_social {
+	margin-bottom: 2rem;
+}
+.home_social_link {
+	display: inline-flex;
+    background-color: var(--first-color);
+    color: var(--first-color-lighten);
+    font-size: 1.7rem;
+    border-radius: 50%;
+    padding: .40rem;
+    margin: 0 var(--mb-1);
+    transition: .3s;
+}
+.home_social_link:hover {
+	background-color: var(--first-color-dark);
+}
+
+.btn{
+	display: inline-block;
+    background-color: var(--first-color);
+    color: var(--first-color-lighten);
+    padding: 1rem 2rem;
+    font-weight: var(--font-semi-bold);
+    border-radius: .5rem;
+    transition: .3s;
+}
+.btn:hover {
+	background-color: var(--first-color-dark);
+
+}
+.btn_light {
+	background-color: var(--first-color-lighten);
+    color: var(--first-color);
+}
+.btn_light:hover {
+   color: var(--first-color-lighten);
+}
+#home_btn {
+	width: 75%;
+}
+#send_btn{
+    font-weight: 500;
+    width: 130px;
+    height: 40px;
+    padding: .25rem .25rem;
+    text-align: center;
+
+}
+.project{
+    background-color:  var(--first-color);
+
+}
+.project_data {
+	text-align: center;
+}
+.project_desc,.project-title {
+	color:var(--first-color-lighten);
+}
+.project_desc {
+    font-size:  var(--h3);
+	margin-bottom:  var(--mb-4);
+}
+.project-title {
+	margin-bottom: 20px;
+}
+.services_container{
+    grid-row-gap: 2rem;
+}
+.services_content{
+    padding: 1.5rem .5rem;
+    border: 2px solid var(--first-color);
+    border-radius: .5rem;
+    text-align: center;
+
+}
+.services_icon {
+	font-size: 2rem;
+    margin: var(--mb-1);
+}
+.services-title {
+	font-size: var(--h1);
+    color: var(--first-color);
+    text-align: center;
+    margin-bottom: var(--mb-1);
+    text-transform: uppercase;
+
+}
+.services_title,.services_content,.services_container {
+ transition: .5s;
+}
+.services_content:hover {
+	background-color: var(--first-color);
+}
+.services_content:hover .services_icon {
+	background-color:  var(--first-color-lighten);
+    color:  var(--first-color);
+}
+.services_content:hover .services_title{
+    color: var(--first-color-lighten);
+}
+.services_content:hover .services_desc{
+    color: var(--first-color-lighten);
+}
+
+
+.education_container {
+	text-align: center;
+}
+.education_content {
+    margin: var(--mb-3);
+	display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+
+}
+.education_year {
+
+}
+.education_details-1 {
+
+}
+.education_details-2 {
+
+
+}
+.education_std,.education_year {
+	font-size: var(--h3);
+    margin-bottom: .25rem;
+}
+
+.education_university,.education_percentage {
+	display: block;
+    font-size: var(--smaller-size);
+}
+.education_rounder {
+	position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: var(--first-color);
+    border-radius: 50%;
+}
+.education_rounder::before{
+  content: '';
+    position: absolute;
+    transform: translate(-10px,-4px);
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--first-color);
+    border-radius: 50%;
+}
+.education_line {
+	display: block;
+    height: 100%;
+    width: 2px;
+    background-color:var(--first-color);
+    transform: translate(5px,-4px);
+}
+.about_data{
+    text-align: center;
+}
+.about_desc{
+    margin-bottom: var(--mb-4);
+}
+.about_img{
+    width: 150px;
+    border-radius: .5rem;
+    margin: 0 auto;
+}
+
+.skills_subtitle {
+	text-transform: uppercase;
+    font-size: var(--h2);
+    color: var(--first-color-dark);
+    margin-bottom: var(--mb-2);
+
+}
+
+.skills_data {
+	position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 var(--mb-2);
+    margin-bottom: var(--mb-4);
+}
+
+.skills_name,.skills_percentage {
+	text-transform: uppercase;
+    font-size: var(--h3);
+}
+.skills_bar {
+    position: absolute;
+    bottom: -0.75rem;
+    height: 0.35rem;
+    background-color: var(--first-color);
+    border-radius: 10px;
+}
+
+.info_details {
+	padding: 5px;
+}
+
+.c-form{
+    width: 100%;
+    box-shadow: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 10px 0px;
+    font-weight: 300;
+    margin: 10px;
+    color: var(--first-color-dark);
+    border-bottom: 2px solid var(--first-color-light);
+
+}
+.contactarea
+{
+   min-height: 50px;
+}
+.btn_container{
+      text-align: center;
+    }
+.textarea
+{
+  min-height: 150px;
+}
+
+.footer
+{
+    background-color: var(--first-color-light);
+}
+.footer_details{
+    padding: 10px;
+    font-size:var(--h3);
+    font-weight: var( --font-medium);
+}
+.footer_name {
+    font-size:var(--h2);
+	font-weight: var( --font-semi-bold);
+}
+
+
+
+
+@media screen and (min-width:768px){
+    #home_btn{
+        width: 45%;
+    }
+    .nav_menu {
+	width: var(--nav-width);
+}
+    .about_data {
+	text-align: initial;
+}
+    .about_desc {
+	margin-bottom: var(--mb-5);
+}
+    .about_img {
+	width: 220px;
+}
+    .project{
+        margin: 15px;
+        border-radius: 1rem;
+    }
+    .project_container{
+        background-color: var(--first-color);
+        padding: 0 2rem;
+
+    }
+    .project_data {
+	padding: 3rem 0;
+}
+    .project-title,.project_data {
+	text-align: initial;
+}
+    .btn-contact{
+        width: initial;
+    }
+    .project_data {
+	padding: 3rem 0;
+}
+    .project_title,.project_data {
+	text-align: initial;
+
+   }
+}
+
+@media screen and (min-width:1024px){
+    body{
+        margin: 0;
+        padding-left: var(--nav-width);
+    }
+    .l-header {
+	width: 0;
+}
+    .nav-close,.nav_toggle{
+	display: none;
+}
+    .nav_menu {
+	left: 0;
+}
+    .home_data {
+	height: 81vh;
+}
+    .section {
+	padding: 3rem 0 2rem;
+}
+    .bd-grid {
+	margin-left: auto;
+        margin-right: auto;
+}
+
+    .about_container {
+	    margin: 0px 25px 40px 25px;
+}
+    .about_data {
+	display: flex;
+}
+    .about_title{
+        text-align: left;
+        margin-left: 25px;
+    }
+    .about_desc {
+	    margin-right: 30px;
+}
+    .services_container {
+        margin: 2rem;
+	grid-template-columns: repeat(3,1fr);
+}
+    .education_container {
+	height: 65vh;
+}
+    .education_std, .education_year {
+    font-size: var(--h2);
+}
+    .education_university, .education_percentage {
+    font-weight: var(--font-medium);
+    font-size: smaller;
+}
+    .skills_content{
+            line-height: 40px;
+    }
+    .skills_subtitle{
+        text-align: center;
+    }
+    .frontend{
+        width: 48%;
+        float: left;
+        border: 2px solid var(--first-color-light);
+        border-radius: 10px;
+           border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+        margin: 10px;
+    }
+    .backend {
+    border: 2px solid var(--first-color-light);
+    border-radius: 10px;
+
+        margin: 10px;
+}
+    .skills_line {
+	width: 2px;
+    height: 50px;
+     background-color:var(--first-color);
+
+}
+    .information {
+	    width: 50%;
+    float: left;
+}
+    .contact_form{
+         margin-right: 25px;
+    }
+
+    .contact_container {
+
+}
+    .btn_container{
+      text-align: center;
+    }
+    .c-form,.textarea{
+      font-size: var(--normal-size);
+      font-weight: var(--semi-bold);
+    }
+    #send_btn {
+      font-size: var(--normal-size);
+        width: 38%;
+}
+}
+
+[data-aos="example-anim1"]{
+  height: 0%;
+  transition-property:height;
+  }
+[data-aos="example-anim1"].aos-animate {
+    height: 100%;
+  }
+
+[data-aos="example-anim2"]{
+  width: 0%;
+  transition-property:width;
+  }
+[data-aos="example-anim2"].aos-animate {
+    width: 80%;
+  }
+
+[data-aos="example-anim3"]{
+  width: 0%;
+  transition-property:width;
+  }
+[data-aos="example-anim3"].aos-animate {
+    width: 90%;
+  }
+[data-aos="example-anim4"]{
+  width: 0%;
+  transition-property:width;
+  }
+[data-aos="example-anim4"].aos-animate {
+    width: 60%;
+  }
+    
+</style>
+<body>
+    <header class="l-header">
+        <nav class="nav bd-grid">
+            <div class="nav_toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+            <div><a href="#" class="nav_title">Gopinaath</a>
+            </div>
+            <div class="nav_menu" id="nav-menu">
+                <div class="nav-close" id="nav-close">
+                    <i class='bx bx-x'></i>
+                </div>
+                <ul class="nav_list">
+                    <li class="nav_item"><a href="#home" class="nav_link active">Home</a></li>
+                    <li class="nav_item"><a href="#about" class="nav_link">About</a></li>
+                    <li class="nav_item"><a href="#skills" class="nav_link">Skills</a></li>
+                    <li class="nav_item"><a href="#contact" class="nav_link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+
+    <main class="l-main">
+        <section class="home section" id="home">
+            <div class="home_container bd-grid">
+                    <div class="home_data">
+                <div class="home_img_section">
+                    <img class="home_img" src="{%static 'img/main_pic.gif'%}">
+                </div>
+                <h1 class="home_title">Gopinaath</h1>
+                <span class="home_profession">
+                    Full Stack Developer
+                </span>
+                <div class="home_social">
+                    <a href="https://www.instagram.com/gopi___16?r=nametag" target="_blank" class="home_social_link"><i class='bx bxl-instagram'></i></a>
+                    <a href="https://github.com/GopinaathV" target="_blank" class="home_social_link"><i class='bx bxl-github'></i></a>
+                    <a href="mailto:gopinaath16@gmail.com" class="home_social_link"><i class='bx bx-envelope-open'></i></a>
+                    <a href="https://www.facebook.com/gopinaath.vedhapuri" target="_blank" class="home_social_link"><i class='bx bxl-facebook'></i></a>
+                </div>
+                <a href="{%static '183002049_ECE_SSN_2022_GOPINAATH.pdf'%}" download class="btn" id="home_btn">
+                    Download CV</a>
+            </div>
+            </div>
+        
+        </section>
+
+        <section class="about section" id="about">
+            <div class="about_container"  data-aos="fade-up"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                <h2 class="section-title about_title">About me</h2>
+                <div class="about_container bd-grid">
+                    <div class="about_data">
+                        <p class="about_desc">I am a hardworking and ambitious individual with a great passion for coding and software development.
+I am presently in my final year of study BE Electronics and Communication Engineering at SSN University.
+I have good communication skills that allow me to communicate effectively with a broad range of people.</p>
+                        <img src="{%static 'img/profile_pic.jpeg'%}" style="
+    border-radius: 23px;
+    padding: 5px;
+    border: 3px solid #0089BA;
+    height: 300px;">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+          <section class="project section">
+            <div class="project_container bd-grid">
+                <div class="project_data" data-aos="fade-right"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                    <h2 class="project-title">Do you have project in mind</h2>
+                    <p class="project_desc">If you have a project you would like to bring, do not hesitate to contact me and you can contact me directly here.</p>
+                    
+                    <a href="#contact" class="btn btn_light btn-contact" style="
+    margin-bottom: 20px;
+">Contact me</a>
+          
+                </div>
+            </div>
+        </section>
+        <section class="service section" id="service">
+                  <h2 class="services-title">Interested Fields</h2>
+                  <div class="services_container bd-grid">
+                     <div class="services_content" data-aos="flip-right"  data-aos-duration="1000" data-aos-easing="ease-in-out" >
+                         <i class='bx bx-phone home_social_link services_icon'></i>
+                         <h3 class="services_title">Coding</h3>
+                         <p class="services_desc">
+                            Familiar with Python, C, C++ and Data structure algorithms.
+                         </p>
+                     </div>
+                      <div class="services_content" data-aos="flip-up"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                         <i class='bx bx-phone home_social_link services_icon'></i>
+                         <h3 class="services_title">Web Development</h3>
+                         <p class="services_desc">
+                              Knowledge to create a web site utilizing HTML, CSS, JavaScript.
+                         </p>
+                     </div>
+                     <div class="services_content" data-aos="flip-left"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                         <i class='bx bx-phone home_social_link services_icon'></i>
+                         <h3 class="services_title">Program Solving</h3>
+                         <p class="services_desc">
+                             Able to solve and analyse ways to solve complex problems.
+                         </p>
+                     </div>
+                  </div>
+            
+        </section>
+        
+        
+        
+        <section class="education section">
+            <h2 class="section-title">My education</h2>
+            <div class="education_container bd-grid">
+                <div class="education_content">
+                    <div class="education_details-1" data-aos="fade-in"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                        <h3 class="education_year">2018-2022</h3>
+                        <span class="education_university">SSN College of Engineering</span>
+                    </div>
+                    <div class="education">
+                        <span class="education_rounder"></span>
+                        <span class="education_line" data-aos="example-anim1"></span>
+                    </div>
+                    <div class="education_details-2" data-aos="fade-in"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                        <h3 class="education_std" >Electonics & Communication Engineering</h3>
+                        <span class="education_percentage">CGPA:8.98 </span>
+                    </div>
+                </div>
+                <div class="education_content">
+                    <div class="education_details-1" data-aos="fade-in"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                        <h3 class="education_year">2017-2018</h3>
+                        <span class="education_university">D.A.V Matric Hr Sec School</span>
+                    </div>
+                    <div class="education">
+                        <span class="education_rounder"></span>
+                        <span class="education_line" data-aos="example-anim1"></span>
+                    </div>
+                    <div class="education_details-2" data-aos="fade-in"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                        <h3 class="education_std">12th std</h3>
+                        <span class="education_university">PERCENTAGE:94.16%</span>
+                    </div>
+                </div>
+                <div class="education_content">
+                    <div class="education_details-1" data-aos="fade-in"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                        <h3 class="education_year">2015-2016</h3>
+                        <span class="education_university">D.A.V Matric Hr Sec School</span>
+                    </div>
+                    <div class="education">
+                        <span class="education_rounder"></span>
+                        <span class="education_line" data-aos="example-anim1"></span>
+                    </div>
+                    <div class="education_details-2" data-aos="fade-in"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                        <h3 class="education_std">10th std</h3>
+                        <span class="education_university">PERCENTAGE:96.2%</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="skills section " id="skills">
+            <h2 class="section-title">My skills</h2>
+            <div class="skills_container bd-grid">
+                <div class="skills_content">
+                   <div class="frontend">
+                    <h3 class="skills_subtitle">Frontend</h3>
+                    <div class="skills_data">
+                        <span class="skills_name">html/css</span>
+                        <span class="skills_percentage">90%</span>
+                        <span class="skills_bar" id="skill_html" data-aos="example-anim3"  data-aos-duration="1000" data-aos-easing="ease-in-out"></span>
+                    </div>
+                    <div class="skills_data">
+                        <span class="skills_name">js</span>
+                        <span class="skills_percentage">60%</span>
+                        <span class="skills_bar" id="skill_js" data-aos="example-anim4"  data-aos-duration="1000" data-aos-easing="ease-in-out"></span>
+                    </div>
+                    <div class="skills_data">
+                        <span class="skills_name">react</span>
+                        <span class="skills_percentage">60%</span>
+                        <span class="skills_bar" id="skill_react" data-aos="example-anim4"  data-aos-duration="1000" data-aos-easing="ease-in-out"></span>
+                    </div>   
+                   </div>
+                    <div class="backend">
+                    <h3 class="skills_subtitle">Backend</h3>
+                    <div class="skills_data">
+                        <span class="skills_name">Python</span>
+                        <span class="skills_percentage">80%</span>
+                        <span class="skills_bar" id="skill_python" data-aos="example-anim2"  data-aos-duration="1000" data-aos-easing="ease-in-out"></span>
+                    </div>
+                    <div class="skills_data">
+                        <span class="skills_name">C</span>
+                        <span class="skills_percentage">80%</span>
+                        <span class="skills_bar" id="skill_python" data-aos="example-anim2"  data-aos-duration="1000" data-aos-easing="ease-in-out"></span>
+                    </div>
+                    <div class="skills_data">
+                        <span class="skills_name">C++</span>
+                        <span class="skills_percentage">80%</span>
+                        <span class="skills_bar" id="skill_python" data-aos="example-anim2"  data-aos-duration="1000" data-aos-easing="ease-in-out"></span>
+                    </div>    
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="information section">
+            <div class="info_container bd-grid" data-aos="fade-right"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+                <h2 class="section-title">Information</h2>
+                <div class="info_details">
+                    <i class='bx bx-user-circle home_social_link'></i>
+                    <span>Gopinaath</span>
+                </div>
+                <div class="info_details">
+                    <i class='bx bx-phone home_social_link'></i>
+                    <span>8610109495</span>
+                </div>
+                <div class="info_details">
+                    <i class='bx bx-envelope home_social_link'></i>
+                    <span>gopinaath16@gmail.com</span>
+                </div>
+                <div class="info_details">
+                    <i class='bx bxs-location-plus home_social_link'></i>
+                    <span>G-68/2 12th Street<br>
+                        <span style="margin-left: 57px;">
+                            Anna Nagar East<br></span>
+                         <span style="margin-left: 57px;">    
+                             Chennai-102<br></span>
+                        
+                        </span>
+
+                </div>
+            </div>
+
+        </section>
+      
+
+
+        <section class="contact section" id="contact">
+          <div class="contact_container" data-aos="fade-up"  data-aos-duration="1000" data-aos-easing="ease-in-out">
+            <h2 class="section-title ">Contact</h2>
+            <form class="contact_form bd-grid" method="post" action="{% url 'send_email' %}">
+                {% csrf_token %}
+                <div class="form ">
+                    <input type="text" class="c-form contactarea" id="exampleFormControlInput1" placeholder="Name" name="name">
+                </div>
+                <div class="form">
+                    <input type="email" class="c-form contactarea" id="exampleFormControlInput1" placeholder="Email" name="email">
+                </div>
+                <div class="form">
+                    <textarea class="c-form textarea" id="exampleFormControlTextarea1" placeholder="Message" rows="3" name="message"></textarea>
+                </div>
+
+                <div class="btn_container"><input class="btn" id="send_btn" placeholder="Send" type="submit" value="Send"></div>
+            </form>
+           </div>
+        </section>
+
+    </main>
+
+    <footer class="footer ">
+        <div class="footer_details bd-grid">
+            <span class="footer_name">Gopinaath</span>
+            <p>Copyrights &copy; 2020 All rights reserved by Gopinaath</p>
+        </div>
+    </footer>
+
+
+    <!--    Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/main.js'%}"></script>
+     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+        AOS.init();
+    
+  </script>
+
+</body>
+
+</html>
